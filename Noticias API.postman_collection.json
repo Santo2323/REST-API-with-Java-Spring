@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "ee276d93-a389-448d-8fd9-daeebc2d6d1c",
+		"name": "Noticias API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21870540"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Create Author",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Lautaro\",\r\n    \"lastname\": \"Cardozo\",\r\n    \"fullname\" : \"Lautaro Cardozo\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/author",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Actor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastname\": \"Beron\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/author/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"author",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/author/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"author",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All authors with pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/author?page=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"author"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all authors created after a date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/author/getAfter/2022-08-07T16:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"author",
+								"getAfter",
+								"2022-08-07T16:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find an author by fullname",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/author/Juli",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"author",
+								"Juli"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Source",
+			"item": [
+				{
+					"name": "Create Source",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "PostSource",
+							"host": [
+								"PostSource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/source/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"source",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Source",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Chaco Info\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/source/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"source",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all Sources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/source",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"source"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find a Source by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/source/chaco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"source",
+								"chaco"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Create Article",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Superman lo hace de nuevo\",\r\n    \"description\": \"Superman salvo a un nino del orfanata de ciudad metropolis\",\r\n    \"url\" : \"superman.com\",\r\n    \"urlToImage\": \"supermanimage.com\",\r\n    \"publishedAt\": \"2022-08-04T16:00\",\r\n    \"content\": \"Superman salvo a un nino luego de un incendio en el orfanato de ciudad metropolis tras el ataque de un villano\",\r\n    \"statusPublished\": \"true\",\r\n    \"authorDTO\": {\r\n        \"id\": 4\r\n    },\r\n    \"sourceDTO\": {\r\n        \"id\": 4\r\n    }\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/article",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/article/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Article",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"statusPublished\": \"false\",\r\n    \"authorDTO\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/article/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Article By Word on description or tittle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/article/metropolis",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"metropolis"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
