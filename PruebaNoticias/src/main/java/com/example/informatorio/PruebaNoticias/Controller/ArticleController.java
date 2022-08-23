@@ -51,10 +51,8 @@ public class ArticleController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createArticle(@RequestBody ArticleDTO articleDTO) {
-        articleRepository.save(articleConverter.toEntity(articleDTO));
-
-        return new ResponseEntity<>("Article creado con exito", HttpStatus.OK);
+    public ResponseEntity<?> createArticle(@RequestBody ArticleDTO articleDTO) {;
+        return new ResponseEntity<>(articleConverter.toDto(articleRepository.save(articleConverter.toEntity(articleDTO))), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

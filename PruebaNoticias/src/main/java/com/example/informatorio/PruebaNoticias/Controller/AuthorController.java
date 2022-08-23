@@ -62,8 +62,7 @@ public class AuthorController {
 
     @PostMapping
     public ResponseEntity<?> createAuthor(@RequestBody AuthorDTO authorDTO) {
-        authorRepository.save(authorConverter.toEntity(authorDTO));
-        return new ResponseEntity<String>("Author creado con exito", HttpStatus.CREATED);
+        return new ResponseEntity<>(authorConverter.toDto(authorRepository.save(authorConverter.toEntity(authorDTO))), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

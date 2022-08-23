@@ -6,9 +6,12 @@ import com.example.informatorio.PruebaNoticias.Domain.Author;
 import com.example.informatorio.PruebaNoticias.Domain.Source;
 import com.example.informatorio.PruebaNoticias.Repository.AuthorRepository;
 import com.example.informatorio.PruebaNoticias.Repository.SourceRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 @Service
 public class ArticleService {
     @Autowired
@@ -22,13 +25,14 @@ public class ArticleService {
         this.authorRepository = authorRepository;
     }
 
-    public Author addAuthorToArticle(AuthorDTO authorDTO){
-        Author authorExistente = authorRepository.findById(authorDTO.getId()).get();
+    public Author addAuthorToArticle(@NotNull AuthorDTO authorDTO) {
+           Author authorExistente = authorRepository.findById(authorDTO.getId()).get();
+
         return authorExistente;
 
     };
 
-    public Source addSourceToArticle(SourceDTO sourceDTO){
+    public Source addSourceToArticle(@NotNull SourceDTO sourceDTO){
         Source sourceExistente = sourceRepository.findById(sourceDTO.getId()).get();
         return sourceExistente;
     };

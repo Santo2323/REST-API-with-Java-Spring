@@ -26,8 +26,7 @@ public class SourceController {
 
     @PostMapping
     public ResponseEntity<?> createSource(@RequestBody SourceDTO sourceDTO) {
-        sourceRepository.save(sourceConverter.toEntity(sourceDTO));
-        return new ResponseEntity<>("Source creado con exito", HttpStatus.CREATED);
+        return new ResponseEntity<>(sourceConverter.toDto(sourceRepository.save(sourceConverter.toEntity(sourceDTO))), HttpStatus.CREATED);
     }
 
 
