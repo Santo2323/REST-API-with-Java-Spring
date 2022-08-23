@@ -96,8 +96,8 @@ public class ArticleController {
         return new ResponseEntity<>(articleConverter.toDto(articleExistente), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/{word}")
-    public ResponseEntity<?> SearchByWord(@PathVariable @Validated @Size(min = 4) String word) {
+    @GetMapping(value = "/findByWord")
+    public ResponseEntity<?> SearchByWord(@RequestParam @Validated @Size(min=4) String word) {
         List<Article> listArticles = articleRepository.findBystatusPublishedAndDescriptionContainingOrTitleContaining(true, word, word);
         List<ArticleDTO> listArticlesDTO = listArticles.stream().map(article -> articleConverter.toDto(article)).toList();
       return new ResponseEntity<>(listArticlesDTO, HttpStatus.OK);

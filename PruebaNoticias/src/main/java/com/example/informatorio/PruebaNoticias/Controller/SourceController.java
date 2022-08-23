@@ -56,8 +56,8 @@ public class SourceController {
         return new ResponseEntity<>(listSourcesDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<?> getSourcesByName(@PathVariable String name){
+    @GetMapping("/findByName")
+    public ResponseEntity<?> getSourcesByName(@RequestParam (defaultValue = "") String name){
         List<Source> listSources = sourceRepository.findBynameContaining(name);
         List<SourceDTO> listSourcesDTO = listSources.stream().map(source -> sourceConverter.toDto(source)).toList();
         return new  ResponseEntity<>(listSourcesDTO, HttpStatus.OK);

@@ -52,8 +52,8 @@ public class AuthorController {
     }
 
 
-    @GetMapping("/{fullname}")
-    public ResponseEntity<?> getAuthorsByfullname(@PathVariable String fullname){
+    @GetMapping("/findByFullname")
+    public ResponseEntity<?> getAuthorsByfullname(@RequestParam (defaultValue = "") String fullname){
         List<Author> listAuthors = authorRepository.findByfullnameContaining(fullname);
         List<AuthorDTO> listAuthorsDTO = listAuthors.stream().map(author -> authorConverter.toDto(author)).toList();
 
@@ -87,5 +87,3 @@ public class AuthorController {
         return new ResponseEntity<>(authorConverter.toDto(authorExistente), HttpStatus.CREATED);
     }
 }
-
-// Done
